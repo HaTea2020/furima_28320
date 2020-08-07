@@ -16,6 +16,7 @@
 
 ### Association
 
+- has_many :products
 - has_one :order
 
 ## products テーブル
@@ -31,10 +32,11 @@
 | days        | integer    | null: false                    |
 | price       | integer    | null: false                    |
 | user        | references | null: false, foreign_key: true |
-| address     | references | null: false, foreign_key: true |
+
 
 ### Association
 
+- belongs_to :user
 - has_one :address
 - has_one :order
 
