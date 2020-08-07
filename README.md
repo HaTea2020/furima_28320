@@ -12,12 +12,11 @@
 | last_name        | string   | null: false |
 | sub_first_name   | string   | null: false |
 | sub_last_name    | string   | null: false |
-| birthday         | integer  | null: false |
+| birthday         | date     | null: false |
 
 ### Association
 
-- has_many :products
-- has_many :addresses
+- has_one :order
 
 ## products テーブル
 | Column      | Type       | Options                        |
@@ -36,8 +35,8 @@
 
 ### Association
 
-- belongs_to :user
 - has_one :address
+- has_one :order
 
 ## addresses テーブル
 
@@ -48,10 +47,20 @@
 | city          | string     | null: false                    |
 | house_number  | string     | null: false                    |
 | building_name | string     |                                |
-| user          | references | null: false, foreign_key: true |
 | product       | references | null: false, foreign_key: true |
 
 ### Association
+
+- belongs_to :product
+
+
+### order テーブル
+
+| Column        | Type       | Options                        |
+| ------------- | ---------- | ------------------------------ |
+| price         | integer    | null: false                    |
+| user_id       | references | null: false, foreign_key: true |
+| product_id    | references | null: false, foreign_key: true |
 
 - belongs_to :user
 - belongs_to :product
