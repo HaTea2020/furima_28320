@@ -19,7 +19,7 @@
 - has_many :products
 - has_many :order
 
-## products テーブル
+## items テーブル
 | Column      | Type       | Options                        |
 | ----------- | ---------- | ------------------------------ |
 | image       | string     | null: false                    |
