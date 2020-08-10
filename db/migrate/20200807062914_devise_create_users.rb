@@ -9,7 +9,7 @@ class DeviseCreateUsers < ActiveRecord::Migration[6.0]
       t.string :last_name,          null: false
       t.string :sub_first_name,     null: false
       t.string :sub_last_name,      null: false
-      t.string :birthday,           null: false
+      t.date :birthday,           null: false
       t.string :email,              null: false, default: ""
       t.string :encrypted_password, null: false, default: ""
 
