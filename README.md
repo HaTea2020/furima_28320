@@ -16,8 +16,8 @@
 
 ### Association
 
-- has_many :products
-- has_many :order
+- has_many :items
+- has_many :orders
 
 ## items テーブル
 | Column      | Type       | Options                        |
@@ -54,7 +54,7 @@
 
 ### Association
 
-- belongs_to :product
+- belongs_to :item
 
 
 ### order テーブル
@@ -65,4 +65,4 @@
 | product_id    | references | null: false, foreign_key: true |
 
 - belongs_to :user
-- belongs_to :product
+- belongs_to :item
