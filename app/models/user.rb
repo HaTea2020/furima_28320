@@ -5,15 +5,16 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
 
   with_options presence: true do
-    validates :nickname
+    validates :nickname, uniqueness: { case_sensitive: false }
     validates :first_name, format: {
       with:/[ぁ-んァ-ン一-龥]/}
     validates :last_name, format: {
       with:/[ぁ-んァ-ン一-龥]/}
     validates :sub_first_name, format: {
-      with:/([ァ-ン]|ー)/}
+      with:/([-~｡-ﾟァ-ン]|ー)/}
     validates :sub_last_name, format: {
-      with: /([ァ-ン]|ー)/}
+      with: /([-~｡-ﾟァ-ン]|ー)/}
     validates :birthday
   end
+  validates :password, format: {with:/\A(?=.*?[a-z])(?=.*?\d)[a-z\d]+\z/i}
 end
