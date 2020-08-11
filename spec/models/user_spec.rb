@@ -80,6 +80,26 @@ RSpec.describe User, type: :model do
         @user.valid?
         expect(@user.errors.full_messages).to include ("First name is invalid")
       end
+      it "first_nameが全角ではない場合登録できない" do
+        @user.first_name = "ﾔﾏﾀﾞ"
+        @user.valid?
+        expect(@user.errors.full_messages).to include ("First name is invalid")
+      end
+      it "last_nameが全角ではない場合登録できない" do
+        @user.last_name = "ﾀﾛｳ"
+        @user.valid?
+        expect(@user.errors.full_messages).to include ("Last name is invalid")
+      end
+      it "sub_first_nameが全角ではない場合登録できない" do
+        @user.sub_first_name = "ﾔﾏﾀﾞ"
+        @user.valid?
+        expect(@user.errors.full_messages).to include ("Sub first name is invalid")
+      end
+      it "sub_last_nameが全角ではない場合登録できない" do
+        @user.sub_last_name = "ﾀﾛｳ"
+        @user.valid?
+        expect(@user.errors.full_messages).to include ("Sub last name is invalid")
+      end
     end
   end
 end

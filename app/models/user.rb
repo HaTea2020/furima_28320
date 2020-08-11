@@ -11,9 +11,9 @@ class User < ApplicationRecord
     validates :last_name, format: {
       with:/[ぁ-んァ-ン一-龥]/}
     validates :sub_first_name, format: {
-      with:/([-~｡-ﾟァ-ン]|ー)/}
+      with:/\A[\p{katakana}　ー－&&[^ -~｡-ﾟ]]+\z/}
     validates :sub_last_name, format: {
-      with: /([-~｡-ﾟァ-ン]|ー)/}
+      with: /\A[\p{katakana}　ー－&&[^ -~｡-ﾟ]]+\z/}
     validates :birthday
   end
   validates :password, format: {with:/\A(?=.*?[a-z])(?=.*?\d)[a-z\d]+\z/i}
