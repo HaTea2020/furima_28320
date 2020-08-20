@@ -1,10 +1,12 @@
 class OrdersController < ApplicationController
+  before_action :authenticate_user!
   before_action :remove, only: [:index]
+
   def index
     @item = Item.find(params[:item_id])
     @order = AddressOrder.new
   end
-  
+
   def create
     @item = Item.find(params[:item_id])
     @order = AddressOrder.new(address_params)
@@ -34,8 +36,11 @@ class OrdersController < ApplicationController
   end
   def remove
     @item = Item.find(params[:item_id])
-    if @item.address&.persisted?
+    if @item.address&.persisted? || current_user.id == @item.user_id
       redirect_to root_path
     end
+    # unless user_signed_in? && current_user.id == @item.user_id
+    #   redirect_to root_path
+    # end
   end
 end
