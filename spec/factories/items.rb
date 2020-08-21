@@ -1,5 +1,6 @@
 FactoryBot.define do
   factory :item do
+    after(:build) { |item| item.image.attach(io: File.open(Rails.root.join('spec', 'fixtures','files' ,'test_image.png')), filename: 'test_image.png', content_type: 'image/png') }
     name {Faker::Name.last_name}
     explanation {Faker::Lorem.sentence}
     genre_id {Faker::Number.between(from: 2, to: 11)}
