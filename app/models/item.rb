@@ -24,5 +24,6 @@ class Item < ApplicationRecord
   validates :genre_id,:statue_id,:fee_id,:prefecture_id,:days_id,numericality: { other_than: 1 }
 
   belongs_to :user
-  
+  has_one :address
+  has_one :order
 end

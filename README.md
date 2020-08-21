@@ -45,7 +45,7 @@
 | Column        | Type       | Options                        |
 | ------------- | ---------- | ------------------------------ |
 | postal_code   | string     | null: false                    |
-| prefecture    | integer_id | null: false                    |
+| prefecture_id | integer    | null: false                    |
 | city          | string     | null: false                    |
 | house_number  | string     | null: false                    |
 | building_name | string     |                                |
@@ -62,7 +62,7 @@
 | Column        | Type       | Options                        |
 | ------------- | ---------- | ------------------------------ |
 | user_id       | references | null: false, foreign_key: true |
-| product_id    | references | null: false, foreign_key: true |
+| item_id       | references | null: false, foreign_key: true |
 
 - belongs_to :user
 - belongs_to :item
