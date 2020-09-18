@@ -1,3 +1,9 @@
+# アプリケーション名
+  フリマアプリ
+
+# サイトURL
+ https://furima-28320.herokuapp.com/
+
 # テーブルの設計
 
 ## users テーブル
